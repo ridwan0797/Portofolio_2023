@@ -11,12 +11,18 @@
   color: black;
 }
 
+.dino {
+  /* display: flex; */
+  /* background-color: #61dafb; */
+}
+.dino-hover {
+  display: none;
+  /* background-color: #61dafb; */
+}
+
 .text-title-bar {
   color: black;
-  margin-right: 3rem;
-  margin-left: 3rem;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  font-weight: 700;
 }
 .text-title-bar:hover {
   color: white;
@@ -24,6 +30,19 @@
   cursor: pointer;
 }
 
+.text-title-bar:hover .dino {
+  display: none;
+}
+
+.text-title-bar:hover .dino-hover {
+  display: block;
+}
+
+.text-bar-cl {
+  color: black;
+  font-weight: 700;
+  cursor: default;
+}
 .text-bar {
   color: black;
   font-weight: 700;
@@ -32,6 +51,11 @@
   color: white;
   background-color: #1c0af2;
   cursor: pointer;
+}
+
+.font-windows {
+  font-family: "Windows";
+  letter-spacing: 1px;
 }
 
 .App {

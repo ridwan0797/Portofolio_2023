@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      custom1: ["Windows", "sans-serif"],
+    },
   },
   plugins: [],
 }
