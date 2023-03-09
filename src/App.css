@@ -1,3 +1,39 @@
+.bg-main{
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
+.bgcolor{
+  background-color: #DDDDDD;
+  color: black;
+}
+
+.text-title-bar {
+  color: black;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.text-title-bar:hover {
+  color: white;
+  background-color: #1c0af2;
+  cursor: pointer;
+}
+
+.text-bar {
+  color: black;
+  font-weight: 700;
+}
+.text-bar:hover {
+  color: white;
+  background-color: #1c0af2;
+  cursor: pointer;
+}
+
 .App {
   text-align: center;
 }
