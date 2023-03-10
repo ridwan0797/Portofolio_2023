@@ -11,10 +11,6 @@
   color: black;
 }
 
-.dino {
-  /* display: flex; */
-  /* background-color: #61dafb; */
-}
 .dino-hover {
   display: none;
   /* background-color: #61dafb; */
