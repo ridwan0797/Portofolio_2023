@@ -7,12 +7,13 @@ import Header from './layout/Header.js';
 import './App.css';
 
 /* Pick a theme of your choice */
-import original from 'react95/dist/themes/original';
+// import original from 'react95/dist/themes/original';
+import millenium from 'react95/dist/themes/millenium';
 
 /* Original Windows95 font (optional) */
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
-import { Loading } from './pages/Welcome.js';
+import { Loading } from './pages/Loading.js';
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -34,9 +35,8 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 8000);
@@ -45,13 +45,13 @@ const App = () => {
   return (
   <div>
     <GlobalStyles />
-    <ThemeProvider theme={original}>
+    <ThemeProvider theme={millenium}>
       <div className="App">
           {
             loading ? 
             <Loading className='h-full w-full' />
             :
-            <Layout top={<Header />} content={<Content />} />
+            <Layout loading={loading} top={<Header />} content={<Content />} />
           }
       </div>
     </ThemeProvider>

@@ -6,8 +6,18 @@
   width: 100%;
 }
 
+.box {
+  /* background-color: aqua; */
+  position: absolute;
+  /* cursor: move; */
+  margin: auto;
+  user-select: none;
+  top: 200px;
+  left: 190px;
+}
+
 .bgcolor{
-  background-color: #DDDDDD;
+  background-color: #d6cfc7;
   color: black;
 }
 
@@ -22,7 +32,7 @@
 }
 .text-title-bar:hover {
   color: white;
-  background-color: #1c0af2;
+  background-color: #082d76;
   cursor: pointer;
 }
 
@@ -45,11 +55,16 @@
 }
 .text-bar:hover {
   color: white;
-  background-color: #1c0af2;
+  background-color: #082d76;
   cursor: pointer;
 }
 
 .font-windows {
+  font-family: "Windows";
+  letter-spacing: 1px;
+}
+
+.font-window {
   font-family: "Windows";
   letter-spacing: 1px;
 }
