@@ -9,12 +9,12 @@ import { MdOutlineArrowDropUp, MdOutlineArrowDropDown, MdOutlineArrowLeft, MdOut
 export function GameDino(props) {
   return (
     <div>
-    <WindowGeneral title='Dino Markono The Explorer.exe'  style={{ width: '550px', height: '550px'}} close={() => props.onClose()} content={<GameDisplay />} />  
+    <WindowGeneral title='Dino Markono The Explorer.exe'  style={{ width: '550px', height: '550px'}} close={() => props.onClose()} content={<GameDisplay game={props.game} />} />  
   </div>
   )
 }
 
-function GameDisplay() {
+function GameDisplay(props) {
   var link = document.getElementById("space");
 
   function setUp() {
@@ -30,10 +30,15 @@ function GameDisplay() {
     document.getElementsByClassName('runner-container')[0].style.display = 'none';
   });
   return (
-    <div className="flex flex-col" style={{height: '450px'}}>
+    <div className="flex flex-col" style={{ height: '450px' }}>
       <Frame variant="field" className="flex-none w-full h-64">
         <div className="w-full h-full p-2">
-          <ChromeDinoGame className='bg-white w-full h-full'  />
+          {
+            props.game === 'true' ?
+              <ChromeDinoGame className='bg-white w-full h-full' />
+              :
+              ''
+          }
         </div>
       </Frame>
 

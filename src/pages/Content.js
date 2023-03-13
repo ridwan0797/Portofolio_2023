@@ -12,6 +12,7 @@ import Draggable from 'react-draggable'
 import { Contact } from '../components/Contact'
 import { VideoPlayer } from '../components/Video'
 import { GameDino } from '../components/Game'
+import { Clients } from '../components/Clients'
 
 function Content(props) {
 
@@ -20,19 +21,15 @@ function Content(props) {
   const [showGame, toggleShowGame] = React.useState(false);
   const [showClients, toggleShowClients] = React.useState(false);
 
-  const handleOpen = (type) => {
-    if ('contact') toggleShowContact(true)
-    if ('game') toggleShowGame(true)
-    if ('mv') toggleShowMv(true)
-    if ('clients') toggleShowClients(true)
-  };
+  const handleOpenContact = () => toggleShowContact(true);
+  const handleOpenMv = () => toggleShowMv(true);
+  const handleOpenGame = () => toggleShowGame(true);
+  const handleOpenClients = () => toggleShowClients(true);
 
-  const handleClose = (type) => {
-    if ('contact') toggleShowContact(true)
-    if ('game') toggleShowGame(true)
-    if ('mv') toggleShowMv(true)
-    if ('clients') toggleShowClients(true)
-  };
+  const handleCloseContact = () => toggleShowContact(false);
+  const handleCloseMv = () => toggleShowMv(false);
+  const handleCloseGame = () => toggleShowGame(false);
+  const handleCloseClients = () => toggleShowClients(false);
   const menu = [
     {
       title: 'About Me',
@@ -45,16 +42,17 @@ function Content(props) {
     {
       title: 'Lets Talk',
       icon: TALK,
-      action: handleOpen('contact')
+      action: handleOpenContact
     },
     {
       title: 'Clients',
-      icon: CLIENTS
+      icon: CLIENTS,
+      action: handleOpenClients,
     },
     {
       title: 'Play Music Video',
       icon: VC,
-      action: handleOpen('mv'),
+      action: handleOpenMv,
     },
     {
       title: 'Schedule',
@@ -63,14 +61,14 @@ function Content(props) {
     {
       title: 'Feel Bored ?',
       icon: GAME,
-      action: handleOpen('game'),
+      action: handleOpenGame,
     },
   ]
 
   return (
     <div className='w-full h-full relative'>
       <div className='w-full h-full pl-4 pt-12 font-windows text-white text-sm font-medium'>
-          <div className='w-max h-full'>
+        <div className='w-max h-full'>
             <div className='grid grid-cols-2 gap-3'>
               {
                 menu.map((y) => (
@@ -99,7 +97,7 @@ function Content(props) {
       { showContact ?
         <Draggable>
           <div className='box'>
-            <Contact onClose={() => handleClose('contact')} />
+            <Contact onClose={() => handleCloseContact()} />
           </div>
         </Draggable> : <div className='hidden' />
       }
@@ -109,16 +107,16 @@ function Content(props) {
         showMv ?  
         <Draggable>
           <div className='box'>
-            <VideoPlayer onClose={() => handleClose('mv')} />
+            <VideoPlayer onClose={() => handleCloseMv()} />
           </div>
         </Draggable> : ''
       }
 
       {
         showGame ? 
-        <Draggable>
+          <Draggable>
           <div className='box'>
-            <GameDino className='daria' onClose={() => handleClose('game')} />
+            <GameDino className='daria' game={showGame ? 'true' : 'false' } onClose={() => handleCloseGame()} />
           </div>
         </Draggable> : ''
       }
@@ -128,7 +126,7 @@ function Content(props) {
         showClients ? 
         <Draggable>
           <div className='box'>
-            {/* <Clients onClose={() => handleClose('clients')} /> */}
+            <Clients onClose={() => handleCloseClients()} />
           </div>
         </Draggable> : ''
       }
