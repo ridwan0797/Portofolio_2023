@@ -13,6 +13,7 @@ import { Contact } from '../components/Contact'
 import { VideoPlayer } from '../components/Video'
 import { GameDino } from '../components/Game'
 import { Clients } from '../components/Clients'
+import { Schedule } from '../components/Schedule'
 
 function Content(props) {
 
@@ -20,16 +21,19 @@ function Content(props) {
   const [showMv, toggleShowMv] = React.useState(false);
   const [showGame, toggleShowGame] = React.useState(false);
   const [showClients, toggleShowClients] = React.useState(false);
+  const [showSchedule, toggleShowSchedule] = React.useState(false);
 
   const handleOpenContact = () => toggleShowContact(true);
   const handleOpenMv = () => toggleShowMv(true);
   const handleOpenGame = () => toggleShowGame(true);
   const handleOpenClients = () => toggleShowClients(true);
+  const handleOpenSchedule = () => toggleShowSchedule(true);
 
   const handleCloseContact = () => toggleShowContact(false);
   const handleCloseMv = () => toggleShowMv(false);
   const handleCloseGame = () => toggleShowGame(false);
   const handleCloseClients = () => toggleShowClients(false);
+  const handleCloseSchedule = () => toggleShowSchedule(false);
   const menu = [
     {
       title: 'About Me',
@@ -56,7 +60,8 @@ function Content(props) {
     },
     {
       title: 'Schedule',
-      icon: SCHEDULE
+      icon: SCHEDULE,
+      action: handleOpenSchedule,
     },
     {
       title: 'Feel Bored ?',
@@ -127,6 +132,15 @@ function Content(props) {
         <Draggable>
           <div className='box'>
             <Clients onClose={() => handleCloseClients()} />
+          </div>
+        </Draggable> : ''
+      }
+
+      {
+        showSchedule ? 
+        <Draggable>
+          <div className='box'>
+            <Schedule onClose={() => handleCloseSchedule()} />
           </div>
         </Draggable> : ''
       }

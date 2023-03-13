@@ -37,7 +37,7 @@ function MainContent() {
   return (
     <div className="w-full " style={{height: '280px'}} >
       <Frame variant="field" className="w-full h-full">
-        <div className="w-full flex flex-row gap-4 text-xs font-window p-7">
+        <div className="w-full flex flex-row gap-8 text-xs font-window p-7">
           {clientsData.map((x) => (
             <div className="flex items-center h-28 flex-col gap-2 w-full bg-transparent cursor-pointer hover:bg-purple-200">
               <div className="flex justify-center w-full h-full p-4">
@@ -69,6 +69,6 @@ function MainContent() {
 
 export function Clients(props) {
   return (
-    <WindowGeneral toolbar={true} title='Clients.exe'  style={{ width: '700px', height: '400px'}} close={() => props.onClose()} content={<MainContent />} />
+    <WindowGeneral toolbar={true} title='Clients'  style={{ width: '700px', height: '400px'}} close={() => props.onClose()} content={<MainContent />} />
   )  
 }
