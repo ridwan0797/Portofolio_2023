@@ -5,6 +5,7 @@ import Layout from './layout/Layout.js';
 import Content from './pages/Content';
 import Header from './layout/Header.js';
 import './App.css';
+import START from './assets/sound/start.mp3'
 
 /* Pick a theme of your choice */
 // import original from 'react95/dist/themes/original';
@@ -38,6 +39,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
+      var AudioPlay = new Audio (START);
+      AudioPlay.play();
       setLoading(false);
     }, 8000);
   }, []);
@@ -51,7 +54,8 @@ const App = () => {
             loading ? 
             <Loading className='h-full w-full' />
             :
-            <Layout loading={loading} top={<Header />} content={<Content />} />
+              <Layout loading={loading} top={<Header />} content={<Content />} />
+            
           }
       </div>
     </ThemeProvider>

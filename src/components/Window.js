@@ -2,11 +2,17 @@ import { Button, Frame, Toolbar, Window, WindowContent, WindowHeader } from "rea
 // import { IoCloseOutline } from "react-icons/io";
 
 
-function WindowGeneral (props) {
+function WindowGeneral(props) {
+  function classWd() {
+    return `${props.classWindow} flex flex-col`
+  } 
+  function classHd() {
+    return `${props.classHeader} h-20 flex-none`
+  } 
   return (
     <>
-      <Window resizable className='flex flex-col' style={props.style  || { width: '500px', height: '400px'}}>
-        <WindowHeader className='h-20 flex-none' style={{height: '38px'}}>
+      <Window resizable className={classWd()} style={props.style || { width: '500px', height: '400px' }}>
+        <WindowHeader className={classHd()} style={{height: '38px'}}>
           <div className="flex flex-row w-full">
             <div className="flex-none text-left cursor-move" style={{width: '90%'}}>{ props.title || 'react95.exe' }</div>
 
@@ -29,6 +35,21 @@ function WindowGeneral (props) {
             </Button>
             <Button variant='menu' size='sm' disabled>
               Save
+            </Button>
+          </Toolbar> : <div></div>
+        }
+
+        {
+          props.toolbarGame ? 
+          <Toolbar className="flex-none h-10">
+            <Button variant='menu' size='sm'>
+              Setting
+            </Button>
+            <Button variant='menu' size='sm'>
+              Highscore
+            </Button>
+            <Button variant='menu' size='sm' disabled>
+              Help
             </Button>
           </Toolbar> : <div></div>
         }

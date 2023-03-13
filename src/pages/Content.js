@@ -4,18 +4,35 @@ import PROJECTS from '../assets/icons/projects.png'
 import CLIENTS from '../assets/icons/clients.png'
 import VC from '../assets/icons/music.png'
 import SCHEDULE from '../assets/icons/schedule.png'
+import GAME from '../assets/icons/game.png'
 import * as React from 'react';
 import '../App.css'
 // import { Button, Frame, Toolbar, Window, WindowContent, WindowHeader } from 'react95';
 import Draggable from 'react-draggable'
 import { Contact } from '../components/Contact'
+import { VideoPlayer } from '../components/Video'
+import { GameDino } from '../components/Game'
 
 function Content(props) {
 
   const [showContact, toggleShowContact] = React.useState(false);
+  const [showMv, toggleShowMv] = React.useState(false);
+  const [showGame, toggleShowGame] = React.useState(false);
+  const [showClients, toggleShowClients] = React.useState(false);
 
-  const handleOpenContact = () => toggleShowContact(true);
-  const handleCloseContact = () => toggleShowContact(false);
+  const handleOpen = (type) => {
+    if ('contact') toggleShowContact(true)
+    if ('game') toggleShowGame(true)
+    if ('mv') toggleShowMv(true)
+    if ('clients') toggleShowClients(true)
+  };
+
+  const handleClose = (type) => {
+    if ('contact') toggleShowContact(true)
+    if ('game') toggleShowGame(true)
+    if ('mv') toggleShowMv(true)
+    if ('clients') toggleShowClients(true)
+  };
   const menu = [
     {
       title: 'About Me',
@@ -28,19 +45,25 @@ function Content(props) {
     {
       title: 'Lets Talk',
       icon: TALK,
-      action: handleOpenContact
+      action: handleOpen('contact')
     },
     {
       title: 'Clients',
       icon: CLIENTS
     },
     {
-      title: 'Play Video',
-      icon: VC
+      title: 'Play Music Video',
+      icon: VC,
+      action: handleOpen('mv'),
     },
     {
       title: 'Schedule',
       icon: SCHEDULE
+    },
+    {
+      title: 'Feel Bored ?',
+      icon: GAME,
+      action: handleOpen('game'),
     },
   ]
 
@@ -69,35 +92,6 @@ function Content(props) {
             </div>
             
           </div>
-          {/* <Window resizable className='window absolute top-56 z-50'>
-            <WindowHeader className='window-title'>
-              <span>react95.exe</span>
-              <Button>
-                <span className='close-icon' />
-              </Button>
-            </WindowHeader>
-            <Toolbar>
-              <Button variant='menu' size='sm'>
-                File
-              </Button>
-              <Button variant='menu' size='sm'>
-                Edit
-              </Button>
-              <Button variant='menu' size='sm' disabled>
-                Save
-              </Button>
-            </Toolbar>
-            <WindowContent>
-              <p>
-                When you set &quot;resizable&quot; prop, there will be drag handle
-                in the bottom right corner (but resizing itself must be handled by
-                you tho!)
-              </p>
-            </WindowContent>
-            <Frame variant='well' className='footer'>
-              Put some useful information here
-            </Frame>
-          </Window> */}   
       </div>
       
 
@@ -105,10 +99,40 @@ function Content(props) {
       { showContact ?
         <Draggable>
           <div className='box'>
-            <Contact onClose={() => handleCloseContact()} />
+            <Contact onClose={() => handleClose('contact')} />
           </div>
-        </Draggable> : false
+        </Draggable> : <div className='hidden' />
       }
+
+      
+      {
+        showMv ?  
+        <Draggable>
+          <div className='box'>
+            <VideoPlayer onClose={() => handleClose('mv')} />
+          </div>
+        </Draggable> : ''
+      }
+
+      {
+        showGame ? 
+        <Draggable>
+          <div className='box'>
+            <GameDino className='daria' onClose={() => handleClose('game')} />
+          </div>
+        </Draggable> : ''
+      }
+
+
+      {
+        showClients ? 
+        <Draggable>
+          <div className='box'>
+            {/* <Clients onClose={() => handleClose('clients')} /> */}
+          </div>
+        </Draggable> : ''
+      }
+
     </div>
   );
 }

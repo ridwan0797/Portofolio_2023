@@ -1,9 +1,36 @@
+/* .runner-container ~ .runner-container{
+  display: none;
+}  */
+
 .bg-main{
   background-image: url("./assets/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
+}
+.bg-controller{
+  background-image: url("./assets/bg-remote.jpeg");
+  opacity: 0.7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
+.border-retro {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(130, 130, 130) rgb(255, 255, 255) rgb(255, 255, 255) rgb(130, 130, 130);
+}
+.bg-gradient {
+  background: hsla(240, 22%, 31%, 1) !important;
+
+  background: linear-gradient(90deg, hsla(240, 22%, 31%, 1) 0%, hsla(240, 21%, 67%, 1) 100%) !important;
+
+  background: -moz-linear-gradient(90deg, hsla(240, 22%, 31%, 1) 0%, hsla(240, 21%, 67%, 1) 100%) !important;
+
+  background: -webkit-linear-gradient(90deg, hsla(240, 22%, 31%, 1) 0%, hsla(240, 21%, 67%, 1) 100%) !important;
 }
 
 .box {
