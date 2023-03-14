@@ -14,6 +14,7 @@ import { VideoPlayer } from '../components/Video'
 import { GameDino } from '../components/Game'
 import { Clients } from '../components/Clients'
 import { Schedule } from '../components/Schedule'
+import { Projects } from '../components/Projects'
 
 function Content(props) {
 
@@ -22,13 +23,17 @@ function Content(props) {
   const [showGame, toggleShowGame] = React.useState(false);
   const [showClients, toggleShowClients] = React.useState(false);
   const [showSchedule, toggleShowSchedule] = React.useState(false);
+  const [showProject, toggleShowProject] = React.useState(false);
 
+
+  const handleOpenProject = () => toggleShowProject(true);
   const handleOpenContact = () => toggleShowContact(true);
   const handleOpenMv = () => toggleShowMv(true);
   const handleOpenGame = () => toggleShowGame(true);
   const handleOpenClients = () => toggleShowClients(true);
   const handleOpenSchedule = () => toggleShowSchedule(true);
 
+  const handleCloseProject = () => toggleShowProject(false);
   const handleCloseContact = () => toggleShowContact(false);
   const handleCloseMv = () => toggleShowMv(false);
   const handleCloseGame = () => toggleShowGame(false);
@@ -41,7 +46,8 @@ function Content(props) {
     },
     {
       title: 'Projects Portofolio',
-      icon: PROJECTS
+      icon: PROJECTS,
+      action: handleOpenProject
     },
     {
       title: 'Lets Talk',
@@ -144,6 +150,21 @@ function Content(props) {
           </div>
         </Draggable> : ''
       }
+      
+      {
+        showProject ?
+        <Draggable>
+          <div className='box'>
+            <Projects onClose={() => handleCloseProject()} />
+          </div>
+          </Draggable> : ''
+      }
+      
+        <Draggable>
+          <div className='box'>
+            <Projects onClose={() => handleCloseProject()} />
+          </div>
+        </Draggable>
 
     </div>
   );
