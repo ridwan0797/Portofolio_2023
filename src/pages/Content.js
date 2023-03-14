@@ -15,6 +15,7 @@ import { GameDino } from '../components/Game'
 import { Clients } from '../components/Clients'
 import { Schedule } from '../components/Schedule'
 import { Projects } from '../components/Projects'
+import { About } from '../components/About'
 
 function Content(props) {
 
@@ -24,6 +25,8 @@ function Content(props) {
   const [showClients, toggleShowClients] = React.useState(false);
   const [showSchedule, toggleShowSchedule] = React.useState(false);
   const [showProject, toggleShowProject] = React.useState(false);
+  const [index, setIndex] = React.useState(1);
+
 
 
   const handleOpenProject = () => toggleShowProject(true);
@@ -39,6 +42,15 @@ function Content(props) {
   const handleCloseGame = () => toggleShowGame(false);
   const handleCloseClients = () => toggleShowClients(false);
   const handleCloseSchedule = () => toggleShowSchedule(false);
+
+
+  function onFocus(id) {
+    setIndex(index + 1)
+    console.log('before', index)
+    document.getElementById(id).style.zIndex = index;
+    console.log('after', index)
+  }
+
   const menu = [
     {
       title: 'About Me',
@@ -107,7 +119,7 @@ function Content(props) {
         
       { showContact ?
         <Draggable>
-          <div className='box'>
+          <div id='contact' onClick={() => onFocus('contact')} className='box'>
             <Contact onClose={() => handleCloseContact()} />
           </div>
         </Draggable> : <div className='hidden' />
@@ -116,8 +128,8 @@ function Content(props) {
       
       {
         showMv ?  
-        <Draggable>
-          <div className='box'>
+        <Draggable >
+          <div id='video' onClick={() => onFocus('video')} className='box'>
             <VideoPlayer onClose={() => handleCloseMv()} />
           </div>
         </Draggable> : ''
@@ -126,7 +138,7 @@ function Content(props) {
       {
         showGame ? 
           <Draggable>
-          <div className='box'>
+          <div id='game' onClick={() => onFocus('game')} className='box'>
             <GameDino className='daria' game={showGame ? 'true' : 'false' } onClose={() => handleCloseGame()} />
           </div>
         </Draggable> : ''
@@ -136,7 +148,7 @@ function Content(props) {
       {
         showClients ? 
         <Draggable>
-          <div className='box'>
+          <div id='client' onClick={() => onFocus('client')} className='box'>
             <Clients onClose={() => handleCloseClients()} />
           </div>
         </Draggable> : ''
@@ -144,8 +156,8 @@ function Content(props) {
 
       {
         showSchedule ? 
-        <Draggable>
-          <div className='box'>
+        <Draggable >
+          <div id='schedule' onClick={() => onFocus('schedule')} className='box'>
             <Schedule onClose={() => handleCloseSchedule()} />
           </div>
         </Draggable> : ''
@@ -154,7 +166,7 @@ function Content(props) {
       {
         showProject ?
         <Draggable>
-          <div className='box'>
+          <div id='project' onClick={() => onFocus('project')} className='box'>
             <Projects onClose={() => handleCloseProject()} />
           </div>
           </Draggable> : ''
@@ -162,7 +174,7 @@ function Content(props) {
       
         <Draggable>
           <div className='box'>
-            <Projects onClose={() => handleCloseProject()} />
+            <About onContact={() => handleOpenContact()} onClose={() => handleCloseProject()} />
           </div>
         </Draggable>
 
