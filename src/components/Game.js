@@ -27,7 +27,7 @@ function GameDisplay(props) {
       }
 };
   useEffect(() => {
-    document.getElementsByClassName('runner-container')[0].style.display = 'none';
+    // document.getElementsByClassName('runner-container')[0].style.display = 'none';
   });
   return (
     <div className="flex flex-col" style={{ height: '450px' }}>
