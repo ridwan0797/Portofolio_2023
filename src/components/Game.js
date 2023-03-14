@@ -1,7 +1,7 @@
 import WindowGeneral from "./Window";
 import React, { useEffect } from 'react';
 import '../App.css';
-import ChromeDinoGame from "react-dinosaur-runner";
+import ChromeDinoGame from "react-chrome-dino";
 import { Button, Frame } from "react95";
 import { MdOutlineArrowDropUp, MdOutlineArrowDropDown, MdOutlineArrowLeft, MdOutlineArrowRight} from "react-icons/md";
 
