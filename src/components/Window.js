@@ -9,6 +9,12 @@ function WindowGeneral(props) {
   function classHd() {
     return `${props.classHeader} h-20 flex-none`
   } 
+  function classTb() {
+    return `${props.classToolbar} flex-none h-10`
+  } 
+  function classTbBtn() {
+    return props.classToolbarButton
+  } 
   return (
     <>
       <Window resizable className={classWd()} style={props.style || { width: '500px', height: '400px' }}>
@@ -26,17 +32,17 @@ function WindowGeneral(props) {
 
         {
           props.toolbar ? 
-          <Toolbar className="flex-none h-10">
-            <Button variant='menu' size='sm'>
-              File
-            </Button>
-            <Button variant='menu' size='sm'>
-              Edit
-            </Button>
-            <Button variant='menu' size='sm' disabled>
-              Save
-            </Button>
-          </Toolbar> : <div></div>
+            <Toolbar className={classTb}>
+              <Button className={classTbBtn} variant='menu' size='sm'>
+                File
+              </Button>
+              <Button className={classTbBtn} variant='menu' size='sm'>
+                Edit
+              </Button>
+              <Button className={classTbBtn} variant='menu' size='sm' disabled>
+                Save
+              </Button>
+            </Toolbar> : <div className={classTb}>{props.toolbarCustom }</div>
         }
 
         {

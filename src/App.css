@@ -24,6 +24,7 @@
     border-style: solid;
     border-color: rgb(130, 130, 130) rgb(255, 255, 255) rgb(255, 255, 255) rgb(130, 130, 130);
 }
+
 .bg-gradient {
   background: hsla(240, 22%, 31%, 1) !important;
 
@@ -32,6 +33,14 @@
   background: -moz-linear-gradient(90deg, hsla(240, 22%, 31%, 1) 0%, hsla(240, 21%, 67%, 1) 100%) !important;
 
   background: -webkit-linear-gradient(90deg, hsla(240, 22%, 31%, 1) 0%, hsla(240, 21%, 67%, 1) 100%) !important;
+}
+
+.bg-schedule {
+  background-color: #fff88e !important;
+}
+
+.line-schedule {
+  border-bottom: solid 1px #9e9e9e !important;
 }
 
 .box {
