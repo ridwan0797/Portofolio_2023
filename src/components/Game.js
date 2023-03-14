@@ -32,7 +32,7 @@ function GameDisplay(props) {
   return (
     <div className="flex flex-col" style={{ height: '450px' }}>
       <Frame variant="field" className="flex-none w-full h-64">
-        <div className="w-full h-full bg-red-600 p-2">
+        <div className="w-full h-full p-2">
           {
             props.game === 'true' ?
               <ChromeDinoGame className='bg-schedule w-full h-full' />

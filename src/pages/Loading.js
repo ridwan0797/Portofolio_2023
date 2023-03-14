@@ -239,7 +239,7 @@ export function Loading() {
             </div>
 
             <div className='mt-5 w-96 font-windows'>
-              <div className='font-semibold text-2xl my-4'>Welcome to Ridawn97 OS</div>
+              <div className='font-semibold text-2xl my-4 font-window'>Welcome to Ridawn97 OS</div>
               <ProgressBar color='#1c0af2' variant='tile' value={Math.floor(percent)} />
               <div className=''>Dino Markono is Loading {Math.floor(percent)}%</div>
             </div>
